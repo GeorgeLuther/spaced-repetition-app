@@ -1,0 +1,34 @@
+header {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-top: 0;
+    background-color: gray;
+}
+h1 {
+    font-size: 20px;
+    flex: 1;
+}
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 16px;
+}
+@media only screen and (min-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+    nav {
+        justify-content: flex-end;
+    }
+    nav a {
+        padding: 8px;
+    }
+}
