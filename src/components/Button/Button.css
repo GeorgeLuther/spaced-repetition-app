@@ -1,0 +1,13 @@
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+}
+button:hover {
+    background-color: #78e47c;
+}
+button:active {
+    background-color: burlywood;
+}

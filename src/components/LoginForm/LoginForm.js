@@ -4,6 +4,8 @@ import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
 
+
+
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
@@ -72,9 +74,11 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button type='submit'>
-          Login
-        </Button>
+        <footer>
+          <Button type='submit'>
+            Login
+          </Button>
+        </footer>
       </form>
     )
   }
