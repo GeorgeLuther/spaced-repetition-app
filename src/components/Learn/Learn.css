@@ -1,0 +1,21 @@
+.Learn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.CurrWord {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
+}
+#learn-guess-input {
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 20px;
+}
+.MakeGuess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}

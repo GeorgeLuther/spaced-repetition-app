@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
-import TokenService from '../../services/token-service'
 import LanguageService from '../../services/language-service'
 import UserContext from '../../contexts/UserContext'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import Loading from '../Loading/Loading'
-import config from '../../config';
+
 
 import './Dashboard.css'
 
@@ -33,7 +32,7 @@ class Dashboard extends Component{
   render() {
     const listWords=(words)=>{
         const listItems = words.map((word, idx)=> {
-            return (<li key={word+idx} className='word-item' style={idx%2 ? {"background-color": "rgb(238, 222, 200)"}: null}>
+            return (<li key={word+idx} className='word-item' style={idx%2 ? {"backgroundColor": "rgb(238, 222, 200)"}: null}>
                         <h4>{word.original}</h4>
                         <div>
                             <p>correct answer count: {word.correct_count}</p>
