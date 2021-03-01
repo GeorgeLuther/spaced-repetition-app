@@ -10,7 +10,7 @@ This application was completed by George Luther as a capstone II project.
   - Repository: https://github.com/GeorgeLuther/spaced-repetition-api
  
 ## Description
-Ricorda implements spaced repetition in JavaScript. It has an initial mode for learning new words in Italian. Our algorithm implements a singly linked list to show words that are answered incorrectly more frequently than words that are answered correctly.
+This application was completed by George Luther as a capstone II project. The intent was to build out features based on test requirements for a language learning program. This uses a javascript implementation of a singly-linked-list to control the order words, thereby accomplishing the spaced repetition learning technique. Correctly answered words are displayed less frequently to maximize study time on words that need review.
 
 ## Setup
 
