@@ -1,5 +1,17 @@
 # Spaced Repetition Capstone
 
+Spaced Repetition
+This application was completed by George Luther as a capstone II project.
+
+* Live version: https://spaced-repetition-app-one.vercel.app/
+* Demo Username: admin
+* Demo Password: pass
+* Associated API:
+  - Repository: https://github.com/GeorgeLuther/spaced-repetition-api
+ 
+## Description
+Ricorda implements spaced repetition in JavaScript. It has an initial mode for learning new words in Italian. Our algorithm implements a singly linked list to show words that are answered incorrectly more frequently than words that are answered correctly.
+
 ## Setup
 
 To setup the application
