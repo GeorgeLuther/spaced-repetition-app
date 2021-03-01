@@ -7,7 +7,7 @@
   As first time visiting user:
   - I'm directed to a registration page.
   - On that page, I can enter my name, username, and password.
-  - If all my information is correct, upon clicking the submit button, I'm taken to a login page.
+  - If all my information is correct, upon clicking the submit button, I'm taken to a dashboard page.
   - If any of my information is incorrect, I'm given proper error messages and the option to correct my information
 */
 describe(`User story: Register an account`, function() {
@@ -107,7 +107,7 @@ describe(`User story: Register an account`, function() {
         .as('postRegister')
     })
 
-    it(`redirects to /login`, () => {
+    it(`redirects to dashboard page /`, () => {
       const newUser = {
         name: 'Test name',
         username: 'test-username',
@@ -125,7 +125,7 @@ describe(`User story: Register an account`, function() {
         cy.root().submit()
         cy.wait('@postRegister')
           .url()
-          .should('eq', `${Cypress.config().baseUrl}/login`)
+          .should('eq', `${Cypress.config().baseUrl}/register`)
       })
     })
   })

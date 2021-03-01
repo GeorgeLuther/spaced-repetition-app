@@ -13,6 +13,8 @@ class Learn extends Component{
         err: null,
         isLoading: true,
         currDisplay: 'question',
+        correct: 0,
+        incorrect: 0,
     }
 
     static contextType = UserContext
@@ -20,7 +22,6 @@ class Learn extends Component{
     componentDidMount(){
         LanguageService.getNextWord()
             .then(res => {
-                console.log('mount-res',res)
                 this.context.setNext(res)
                 this.context.setScore(res.totalScore)
                 this.setState({isLoading: false})
@@ -63,8 +64,8 @@ class Learn extends Component{
             </>)
         }
         return (<>
-            <p>You have answered this word correctly {this.context.currWord ? this.context.currWord.wordCorrectCount : '?'} times.</p>
-            <p>You have answered this word incorrectly {this.context.currWord ? this.context.currWord.wordIncorrectCount : '?'} times.</p>
+            <p>You have answered this word correctly {this.state.correct} times.</p>
+            <p>You have answered this word incorrectly {this.state.incorrect} times.</p>
     </>)
     }
     handleClickSubmit=(e)=>{
@@ -81,20 +82,25 @@ class Learn extends Component{
 
                 LanguageService.setGuess(guess)
                 .then(res => {
-                    this.context.setNext(res)
-                    this.context.setScore(res.totalScore)
                     res.isCorrect 
                         ? this.setState({
                             currDisplay: 'right',
+                            correct: this.context.nextWord.wordCorrectCount+1,
+                            incorrect: this.context.nextWord.wordIncorrectCount
                         })
                         : this.setState({
                             currDisplay: 'wrong',
+                            correct: this.context.nextWord.wordCorrectCount,
+                            incorrect: this.context.nextWord.wordIncorrectCount+1
                         })
+                    this.context.setNext(res)
+                    this.context.setScore(res.totalScore)
                 })
                 .catch(err => console.log(err))
                 this.setState({isLoading: false})
             }    
         } else {
+
             this.setState({isLoading: true})
             LanguageService.getNextWord()
                 .then(res => {
@@ -126,8 +132,7 @@ class Learn extends Component{
                                 required
                             />}
                             <button className='submitBtn' type='submit'>{this.displayBtnTxt()}</button>
-                            <p>You have answered this word correctly {this.context.nextWord ? this.context.nextWord.wordCorrectCount : '?'} times.</p>
-                            <p>You have answered this word incorrectly {this.context.nextWord ? this.context.nextWord.wordIncorrectCount : '?'} times.</p>
+                            {this.displayCounts()}
                         </form>
                     
                 </>)}
